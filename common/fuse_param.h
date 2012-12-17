@@ -56,16 +56,30 @@
 
 #define MACOSX_ADMIN_GROUP_NAME            "admin"
 
+#ifndef SYSCTL_OSXFUSE_TUNABLES_ADMIN
 #define SYSCTL_OSXFUSE_TUNABLES_ADMIN      "vfs.generic.osxfuse.tunables.admin_group"
+#endif
+#ifndef SYSCTL_OSXFUSE_VERSION_NUMBER
 #define SYSCTL_OSXFUSE_VERSION_NUMBER      "vfs.generic.osxfuse.version.number"
+#endif
 
 /* Paths */
 
+#ifndef OSXFUSE_BUNDLE_PATH
 #define OSXFUSE_BUNDLE_PATH  "/Library/Filesystems/osxfusefs.fs"
+#endif
+#ifndef OSXFUSE_SUPPORT_PATH
 #define OSXFUSE_SUPPORT_PATH OSXFUSE_BUNDLE_PATH "/Support"
+#endif
+#ifndef OSXFUSE_KEXT_NAME
 #define OSXFUSE_KEXT_NAME    "osxfusefs.kext"
+#endif
+#ifndef OSXFUSE_LOAD_PROG
 #define OSXFUSE_LOAD_PROG    OSXFUSE_SUPPORT_PATH "/load_osxfusefs"
+#endif
+#ifndef OSXFUSE_MOUNT_PROG
 #define OSXFUSE_MOUNT_PROG   OSXFUSE_SUPPORT_PATH "/mount_osxfusefs"
+#endif
 #define SYSTEM_KEXTLOAD      "/sbin/kextload"
 #define SYSTEM_KEXTUNLOAD    "/sbin/kextunload"
 
@@ -81,7 +95,9 @@
  * device by default. If you change the prefix from the default to something
  * else, the user-space FUSE library will need to know about it too.
  */
+#ifndef OSXFUSE_DEVICE_BASENAME
 #define OSXFUSE_DEVICE_BASENAME            "osxfuse"
+#endif
 
 /*
  * This is the number of /dev/osxfuse<n> nodes we will create. <n> goes from
